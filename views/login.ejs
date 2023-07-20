@@ -1,0 +1,30 @@
+<!-- views/login.ejs -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>The Junction</title>
+  <link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+<body>
+    <header>
+       The Junction
+      </header>
+  <div class="container-box">
+  <div class="container">
+    <h1>Login</h1>
+    <% if (errorMessage) { %>
+      <p class="error-message"><%= errorMessage %></p>
+    <% } %>
+    <form action="/home" method="post">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+      <button type="submit">Login</button>
+    </form>
+    New here?
+    <a id="register-button" href="/register"> Create a new account...</a>
+  </div>
+    </div>
+</body>
+</html>

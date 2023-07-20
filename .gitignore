@@ -1,0 +1,9 @@
+node_modules/
+.cache
+.config
+.upm
+.replit
+package-lock.json
+package.json
+replit_zip_error_log.txt
+replit.nix

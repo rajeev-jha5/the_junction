@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>chat</title>
+  <style>
+   
+  </style>
+
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header>
+    The Junction
+  </header>
+<!-- <input type="text" id="username-data" value="<%= username %>"> -->
+<div id="username-data" data-value="<%= username %>"></div>
+  <div class="container-box">
+    <div class="container">
+        <div class="profile-bar">
+            <div class="profile-name">Welcome <%= username %>!</div> 
+            <button id="logout-button" onclick="window.location.href ='/login'" >Logout</button>
+        </div>
+        <div id="display-box"></div>
+        <input id="message-input" type="text" placeholder="Enter message here...">
+        <button id="send" onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+
+    
+  <script src="/script.js"></script>
+
+</body>
+</html>
