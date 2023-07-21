@@ -7,12 +7,9 @@ const chatBox = document.getElementById('display-box');
     ws.onopen = (event) => {
       chatBox.innerHTML += "<p>Connected to the chat!</p>";
     };
-    // var username=<%= username %>;
+    
     var username=document.getElementById("username-data").getAttribute("data-value");
-    // function setName(){
-    //   username=document.getElementById('set_name_input').value;
-    //   document.getElementById('set_name_input').disabled=true
-    // }
+    
 
     ws.onmessage = (event) => {
       const message = JSON.parse(event.data);
