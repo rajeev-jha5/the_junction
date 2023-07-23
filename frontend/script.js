@@ -7,19 +7,17 @@ const chatBox = document.getElementById('display-box');
     ws.onopen = (event) => {
       chatBox.innerHTML += "<p>Connected to the chat!</p>";
     };
-    // var username=<%= username %>;
+    
     var username=document.getElementById("username-data").getAttribute("data-value");
-    // function setName(){
-    //   username=document.getElementById('set_name_input').value;
-    //   document.getElementById('set_name_input').disabled=true
-    // }
+    
 
     ws.onmessage = (event) => {
       const message = JSON.parse(event.data);
       const messageText = message.text;
       const sender = message.sender;
 
-      chatBox.innerHTML += `<p><strong>${sender}: </strong>${messageText}</p>`;
+      chatBox.innerHTML += `<div id="sender-message"><p><strong id="sender-id">${sender}:</strong> ${messageText}</p></div>`;
+      chatBox.scrollTop = chatBox.scrollHeight;
     };
 
     function sendMessage() {
@@ -27,10 +25,11 @@ const chatBox = document.getElementById('display-box');
     if (message !== '') {
       const messageObject = {
         text: message,
-        sender: username
+        sender: username    
       };
       ws.send(JSON.stringify(messageObject));
-      chatBox.innerHTML += `<p><strong>${username}: </strong>${message}</p>`;
+      chatBox.innerHTML += `<div id="client-message"><p></strong>${message}</p></div>`;
+      chatBox.scrollTop = chatBox.scrollHeight;
       messageInput.value = '';
     }
   }
