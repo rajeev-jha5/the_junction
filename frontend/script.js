@@ -16,7 +16,8 @@ const chatBox = document.getElementById('display-box');
       const messageText = message.text;
       const sender = message.sender;
 
-      chatBox.innerHTML += `<p><strong>${sender}: </strong>${messageText}</p>`;
+      chatBox.innerHTML += `<div id="sender-message"><p><strong id="sender-id">${sender}:</strong> ${messageText}</p></div>`;
+      chatBox.scrollTop = chatBox.scrollHeight;
     };
 
     function sendMessage() {
@@ -24,10 +25,11 @@ const chatBox = document.getElementById('display-box');
     if (message !== '') {
       const messageObject = {
         text: message,
-        sender: username
+        sender: username    
       };
       ws.send(JSON.stringify(messageObject));
-      chatBox.innerHTML += `<p><strong>${username}: </strong>${message}</p>`;
+      chatBox.innerHTML += `<div id="client-message"><p></strong>${message}</p></div>`;
+      chatBox.scrollTop = chatBox.scrollHeight;
       messageInput.value = '';
     }
   }
